@@ -1,0 +1,22 @@
+.jumbotron {
+    height: 60vh;
+    width: 100%;
+    background: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.jumbotron h1 {
+    font-size: 5rem;
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+}
+
+.info h4{
+    padding: 1rem;
+}
