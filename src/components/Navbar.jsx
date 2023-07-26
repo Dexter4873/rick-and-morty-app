@@ -1,15 +1,22 @@
 import { Link } from 'react-router-dom';
 
-function Navbar(props) {
+function Navbar() {
   return (
-    <nav>
-      <p>Logo</p>
+    <nav className="navbar">
+      <Link to="/">
+        <img className="logo" src="../../public/logo.png" alt="logo" />
+      </Link>
       <div className="search-bar">
-        <input type="text" />
+        <div className="search-input">
+          <input type="text" />
+          <div className="search-icon">
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
       </div>
-      <nav>
+      <nav className="nav">
         <Link to="/characters">
-          <i className="fa-solid fa-person"></i> Characters
+          <i className="fa-solid fa-person"></i>Characters
         </Link>
         <Link to="/locations">
           <i className="fa-solid fa-map-location"></i>Locations
