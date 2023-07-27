@@ -8,7 +8,7 @@ function Navbar() {
       </Link>
       <div className="search-bar">
         <div className="search-input">
-          <input type="text" />
+          <input type="text" placeholder="Search..." />
           <div className="search-icon">
             <i className="fa-solid fa-magnifying-glass"></i>
           </div>

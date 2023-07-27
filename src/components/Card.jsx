@@ -1,9 +1,11 @@
-function Card({ children, title, subtitle }) {
+function Card({ title, subtitle, img, children }) {
   return (
     <div className="card">
-      <div className="card-image">
-        <img src="https://placehold.co/600x400" alt="Placeholder" />
-      </div>
+      {img && (
+        <div className="card-image">
+          <img src={img} alt="Placeholder" />
+        </div>
+      )}
 
       <div className="card-content">
         <h3>{title}</h3>

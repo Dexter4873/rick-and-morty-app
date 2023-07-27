@@ -14,12 +14,15 @@ export async function fetchGeneralInfo() {
   return {
     characters: {
       count: res[0].info.count,
+      results: res[0].results,
     },
     locations: {
       count: res[1].info.count,
+      results: res[1].results,
     },
     episodes: {
       count: res[2].info.count,
+      results: res[2].results,
     },
   };
 }

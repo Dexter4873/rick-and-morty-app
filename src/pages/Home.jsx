@@ -1,7 +1,10 @@
 import Jumbotron from '../components/Home/Jumbotron.jsx';
-import Card from '../components/Card.jsx';
 import { useEffect, useState } from 'react';
 import { fetchGeneralInfo } from '../apis/fetchGeneralInfo.js';
+import CharacterCard from '../components/CharacterCard.jsx';
+import LocationCard from '../components/LocationCard.jsx';
+import EpisodeCard from '../components/EpisodeCard.jsx';
+import Grid from '../components/Grid.jsx';
 
 function Home() {
   const [data, setData] = useState(null);
@@ -11,8 +14,9 @@ function Home() {
       const res = await fetchGeneralInfo();
       setData(res);
     };
+
     fetchData();
-  });
+  }, []);
 
   return (
     <>
@@ -25,14 +29,23 @@ function Home() {
           />
           <div className="container">
             <h1 className="title">Characters</h1>
-            <Card title="Title" subtitle="subtitle">
-              <p>this is a text</p>
-              <p>This is another text</p>
-              <p>Lorem ipsum dolor sit amet.</p>
-              <p>Lorem ipsum dolor.</p>
-            </Card>
+            <Grid columns={3}>
+              {data.characters.results.map((item) => (
+                <CharacterCard key={item.id} {...item} />
+              ))}
+            </Grid>
             <h1 className="title">Locations</h1>
+            <Grid columns={3}>
+              {data.locations.results.map((item) => (
+                <LocationCard key={item.id} {...item} />
+              ))}
+            </Grid>
             <h1 className="title">Episodes</h1>
+            <Grid columns={3}>
+              {data.episodes.results.map((item) => (
+                <EpisodeCard key={item.id} {...item} />
+              ))}
+            </Grid>
           </div>
         </div>
       ) : (
